@@ -37,7 +37,9 @@
             text: msg
         })
         .then(function (response) {
-            formClear.value = null
+            formClear.value.name = null
+            formClear.value.nickname = null
+            formClear.value.question = null
             success.value.isShow = true
             success.value.type = "info"
             success.value.text = "Успешная отправка!"
