@@ -1,5 +1,5 @@
 <template>
-    <FormKit v-model="formClear" v-autoanimate type="form" submit-label="Отправить" :submit-attrs="{wrapperClass:'w-fit mx-auto',inputClass:'bg-[#222233] border-2 border-slate-400 rounded-xl px-2 py-1 w-fit text-white hover:bg-white hover:text-[#222233] transition-color duration-500 hover:border-white'}" form-class="flex flex-col gap-6 w-full md:w-1/2 lg:w-1/3 mx-auto" @submit="submitForm">
+    <FormKit v-autoanimate type="form" submit-label="Отправить" :submit-attrs="{wrapperClass:'w-fit mx-auto',inputClass:'bg-[#222233] border-2 border-slate-400 rounded-xl px-2 py-1 w-fit text-white hover:bg-white hover:text-[#222233] transition-color duration-500 hover:border-white'}" form-class="flex flex-col gap-6 w-full md:w-1/2 lg:w-1/3 mx-auto" @submit="submitForm">
         <p class="text-center font-semibold text-2xl md:text-3xl lg:text-4xl">Свяжитесь со мной</p>
         <p class="text-center text-sm md:text-lg">Возник вопрос? Хотите отправить отзыв? Нужна подробная информация? Дайте мне знать.</p>
         <div class="flex flex-col gap-2">
@@ -25,7 +25,6 @@
     const chatId = "-1001907080964"
     const url = `https://api.telegram.org/bot${token}/sendMessage`
     let success = ref({isShow:false,text:"",type:"danger"})
-    let formClear = ref(null)
     const submitForm = (formValues,{reset}) => {
         let msg = `<b>Сообщение с сайта!</b>\n`
         msg += `<b>Отправитель: </b> @${formValues.nickname}\n`
