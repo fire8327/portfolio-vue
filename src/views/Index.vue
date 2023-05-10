@@ -50,7 +50,7 @@
                                         <div>Для этого перейдите по ссылке <a href="https://t.me/fire83274" class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">*клик*</a></div>
                                         <p>Или введите в поиск <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">@fire83274</span></p>
                                     </div>
-                                    <button @click="flipCheck = !flipCheck" class="animate-bounce w-12"><img src="/Images/contact/Group 1.svg" alt=""></button>
+                                    <button @click="flipCheck = !flipCheck" class="animate-bounce w-12"><img src="/Images/contact/back.svg" alt=""></button>
                                 </div>
                             </div>
                         </Transition>                        
