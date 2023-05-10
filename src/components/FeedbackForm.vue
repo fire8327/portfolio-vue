@@ -27,7 +27,7 @@
     let success = ref({isShow:false,text:"",type:"danger"})
     const submitForm = (formValues,{reset}) => {
         let msg = `<b>Сообщение с сайта!</b>\n`
-        msg += `<b>Имя: </b> @${formValues.name}\n`
+        msg += `<b>Имя: </b> ${formValues.name}\n`
         msg += `<b>Ник: </b> @${formValues.nickname}\n`
         msg += `<b>Вопрос: </b> ${formValues.question}\n`
         console.log(msg)
