@@ -26,7 +26,7 @@
     const url = `https://api.telegram.org/bot${token}/sendMessage`
     let success = ref({isShow:false,text:"",type:"danger"})
     let formClear = ref(null)
-    const submitForm = (formValues) => {
+    const submitForm = (formValues,{reset}) => {
         let msg = `<b>Сообщение с сайта!</b>\n`
         msg += `<b>Отправитель: </b> @${formValues.nickname}\n`
         msg += `<b>Вопрос: </b> ${formValues.question}\n`
@@ -37,9 +37,7 @@
             text: msg
         })
         .then(function (response) {
-            formClear.value.name = null
-            formClear.value.nickname = null
-            formClear.value.question = null
+            reset()
             success.value.isShow = true
             success.value.type = "info"
             success.value.text = "Успешная отправка!"
