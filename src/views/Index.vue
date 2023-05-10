@@ -85,6 +85,13 @@
         </div>
         <div class="flex flex-col gap-6">
             <FeedbackForm></FeedbackForm>
+            <!-- <div class="grid grid-cols-3 gap-2" v-for="msg in tgMsgs">
+                <p>{{ msg.message }}</p>
+                <p>{{ msg.message.from.username }}</p>
+                <p><span class="font-semibold">Дата/Время</span> - {{ new Date(msg.message.date * 1000).toLocaleString("ru" , { timeZone: 'UTC' }) }}</p>
+                <p>{{ msg.message.text }}</p>
+            </div>
+            <img src="https://api.telegram.org/file/bot6046764797:AAFAFULakfayU2Hg9iEoiuKFBGe8rZIA19w/photos/file_0.jpg" alt=""> -->
         </div>
     </main>
 </template>
@@ -116,7 +123,21 @@
         console.log(error);
     })
     .finally(function () {
-    });
+    })
+
+    /* Telegram Api */
+
+    let tgApi = ref(null)
+    axios.get('https://api.telegram.org/bot6046764797:AAFAFULakfayU2Hg9iEoiuKFBGe8rZIA19w/getUpdates?chat_id=-921242533')
+    .then(function (response) {
+        tgApi.value = response.data
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+    .finally(function () {
+    })
+    const tgMsgs = computed(()=>tgApi.value.result.filter((a)=> a?.message?.chat?.id == -921242533))
 
     /* Cards */
     const cards = [
@@ -126,7 +147,5 @@
 
     /* Flip */
     let flipCheck = ref(false)
-
-    /*  */
     
 </script>
